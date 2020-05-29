@@ -1,6 +1,6 @@
 #! /bin/bash
 TWOWEEKSAGO=$(date -d 'now - 14 days' '+%Y-%m-%d')
-CURRENT=$(date +'%Y-%m-%d')
+#CURRENT=$(date +'%Y-%m-%d')
 
 #### List of running services containing 'enter the rule here' in name field. Result print in "%Y-%M-%D  SERVICE_ID" format, separated by space.
 docker service inspect --format='{{.UpdatedAt}} {{.ID}}' $(docker service ls | grep 'enter the rule here' | awk '{print $1}') | awk '{print $1 " " $5}' | sort -k1 > tmp_result
